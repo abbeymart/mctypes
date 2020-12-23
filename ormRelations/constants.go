@@ -1,8 +1,12 @@
 // @Author: abbeymart | Abi Akindele | @Created: 2020-12-23 | @Updated: 2020-12-23
 // @Company: mConnect.biz | @License: MIT
-// @Description: go: mConnect
+// @Description: ORM / Table Relations
 
 package ormRelations
 
-const and = "and"
-const or = "or"
+const (
+	OneToOne   = "onetoone"
+	OneToMany  = "onetomany"
+	ManyToMany = "manytomany"
+	ManyToOne  = "manytoone"
+)

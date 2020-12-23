@@ -2,4 +2,10 @@
 // @Company: mConnect.biz | @License: MIT
 // @Description: app-labels for UI components/elements
 
-package appConstants
+package appLabels
+
+// Standard/Default labels for UI elements
+
+const (
+
+)

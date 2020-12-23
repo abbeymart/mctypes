@@ -4,5 +4,7 @@
 
 package groupOperators
 
-const and = "and"
-const or = "or"
+const (
+	AND = "and"
+	OR  = "or"
+)
