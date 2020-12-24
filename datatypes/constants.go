@@ -36,6 +36,7 @@ const (
 	ArrayOfBoolean     = "arrayofboolean"
 	ArrayOfStruct      = "arrayofstruct"
 	ArrayOfMap         = "arrayofmap"
+	ArrayOfArray       = "arrayofarray"
 	Boolean            = "boolean"
 	Bool               = "boolean"
 	JSON               = "json"
