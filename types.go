@@ -21,7 +21,7 @@ type UserInfoType struct {
 	Language  string `json:"language"`
 	LoginName string `json:"login_name" form:"login_name" binding:"required"`
 	Token     string `json:"token"`
-	Expire    uint   `json:"expire"`
+	Expire    int64   `json:"expire"`
 	Group     string `json:"group"`
 	Email     string `json:"email" form:"email" binding:"required"`
 }

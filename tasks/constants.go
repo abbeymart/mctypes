@@ -11,4 +11,7 @@ const (
 	Read   = "read"
 	Delete = "delete"
 	Remove = "remove"
+	Login = "login"
+	Logout = "logout"
+	Other = "other"
 )
