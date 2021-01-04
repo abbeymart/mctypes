@@ -22,14 +22,14 @@ type ComputedMethodsType map[string]ComputedValueType
 
 type FieldDescType struct {
 	FieldType       string
-	FieldLength     uint   // default: 255 for DataType.STRING
+	FieldLength     int   // default: 255 for DataType.STRING
 	FieldPattern    string // "/^[0-9]{10}$/" => includes 10 digits, 0 to 9 | "/^[0-9]{6}.[0-9]{2}$/ => max 16 digits and 2 decimal places
 	AllowNull       bool   // default: true
 	Unique          bool
 	Indexable       bool
 	PrimaryKey      bool
-	MinValue        uint
-	MaxValue        uint
+	MinValue        int
+	MaxValue        int
 	SetValue        SetValueType       // set/transform fieldValue prior to save(create/insert), T=>fieldType
 	DefaultValue    DefaultValueType   // result/T must be of fieldType
 	Validate        ValidateMethodType // T=>fieldType, returns a bool (valid=true/invalid=false)

@@ -54,14 +54,14 @@ type ProjectParamType map[string]bool // 1 or true for inclusion, 0 or false for
 
 type QueryItemType struct {
 	GroupItem      map[string]map[string]interface{} `json:"group_item"`       // key1 => fieldName, key2 => fieldOperator, interface{}=> value(s)
-	GroupItemOrder uint                              `json:"group_item_order"` // item/field order within the group
+	GroupItemOrder int                              `json:"group_item_order"` // item/field order within the group
 	GroupItemOp    string                            `json:"group_item_op"`    // group-item relationship to the next item (AND, OR), the last item groupItemOp should be "" or will be ignored
 }
 
 type QueryGroupType struct {
 	GroupName   string          `json:"group_name"`    // for group-items(fields) categorization
 	GroupItems  []QueryItemType `json:"group_items"`   // group items to be composed by category
-	GroupOrder  uint            `json:"group_order"`   // group order
+	GroupOrder  int            `json:"group_order"`   // group order
 	GroupLinkOp string          `json:"group_link_op"` // group relationship to the next group (AND, OR), the last group groupLinkOp should be "" or will be ignored
 }
 
@@ -80,8 +80,8 @@ type CrudParamsType struct {
 	ProjectParams ProjectParamType `json:"project_params"`
 	SortParams    SortParamType    `json:"sort_params"`
 	Token         string           `json:"token"`
-	Skip          uint             `json:"skip"`
-	Limit         uint             `json:"limit"`
+	Skip          int             `json:"skip"`
+	Limit         int             `json:"limit"`
 	TaskName      string           `json:"-"`
 }
 
@@ -99,7 +99,7 @@ type CrudOptionsType struct {
 	RoleTable             string
 	AccessTable           string
 	VerifyTable           string
-	MaxQueryLimit         uint
+	MaxQueryLimit         int
 	LogAll                bool
 	LogCreate             bool
 	LogUpdate             bool
@@ -109,8 +109,8 @@ type CrudOptionsType struct {
 	LogLogout             bool
 	UnAuthorizedMessage   string
 	RecExistMessage       string
-	CacheExpire           uint
-	LoginTimeout          uint
+	CacheExpire           int
+	LoginTimeout          int
 	UsernameExistsMessage string
 	EmailExistsMessage    string
 	MsgFrom               string
@@ -130,8 +130,8 @@ type CrudParamType struct {
 	ExistParams     ExistParamsType
 	ProjectParams   ProjectParamType
 	SortParams      SortParamType
-	Skip            uint
-	Limit           uint
+	Skip            int
+	Limit           int
 	ParentTables    []string
 	ChildTables     []string
 	RecursiveDelete bool
@@ -143,7 +143,7 @@ type CrudParamType struct {
 	UserTable       string
 	RoleTable       string
 	AccessTable     string
-	MaxQueryLimit   uint
+	MaxQueryLimit   int
 	LogAll          bool
 	LogCreate       bool
 	LogUpdate       bool
@@ -161,7 +161,7 @@ type CrudParamType struct {
 	CurrentRecs         ActionParamsType
 	RoleServices        []RoleServiceType
 	SubItems            []bool
-	CacheExpire         uint
+	CacheExpire         int
 	Params              CrudParamsType
 }
 
@@ -182,8 +182,8 @@ type MongoCrudTaskType struct {
 }
 
 type MongoCrudOptionsType struct {
-	Skip                  uint
-	Limit                 uint
+	Skip                  int
+	Limit                 int
 	ParentTables          []string
 	ChildTables           []string
 	RecursiveDelete       bool
@@ -197,7 +197,7 @@ type MongoCrudOptionsType struct {
 	RoleTable             string
 	AccessTable           string
 	VerifyTable           string
-	MaxQueryLimit         uint
+	MaxQueryLimit         int
 	LogAll                bool
 	LogCreate             bool
 	LogUpdate             bool
@@ -207,8 +207,8 @@ type MongoCrudOptionsType struct {
 	LogLogout             bool
 	UnAuthorizedMessage   string
 	RecExistMessage       string
-	CacheExpire           uint
-	LoginTimeout          uint
+	CacheExpire           int
+	LoginTimeout          int
 	UsernameExistsMessage string
 	EmailExistsMessage    string
 	MsgFrom               string
@@ -228,8 +228,8 @@ type MongoCrudParamType struct {
 	ExistParams     ExistParamsType
 	ProjectParams   ProjectParamType
 	SortParams      SortParamType
-	Skip            uint
-	Limit           uint
+	Skip            int
+	Limit           int
 	ParentTables    []string
 	ChildTables     []string
 	RecursiveDelete bool
@@ -241,7 +241,7 @@ type MongoCrudParamType struct {
 	UserTable       string
 	RoleTable       string
 	AccessTable     string
-	MaxQueryLimit   uint
+	MaxQueryLimit   int
 	LogAll          bool
 	LogCreate       bool
 	LogUpdate       bool
@@ -259,7 +259,7 @@ type MongoCrudParamType struct {
 	CurrentRecs         ActionParamsType
 	RoleServices        []RoleServiceType
 	SubItems            []bool
-	CacheExpire         uint
+	CacheExpire         int
 	Params              MongoCrudTaskType
 }
 
