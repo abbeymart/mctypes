@@ -304,10 +304,10 @@ type SelectQueryResponseType struct {
 }
 
 type SaveParamsType struct {
-	UserInfo    UserInfoType   `json:"user_info"`
-	QueryParams QueryParamType `json:"query_params"`
-	RecordIds   []string       `json:"record_ids"`
-	ActionParamsType
+	UserInfo     UserInfoType     `json:"user_info"`
+	QueryParams  QueryParamType   `json:"query_params"`
+	RecordIds    []string         `json:"record_ids"`
+	ActionParams ActionParamsType `json:"action_params"`
 }
 
 type DeleteParamsType struct {
