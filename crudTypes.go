@@ -307,7 +307,7 @@ type SaveParamsType struct {
 	UserInfo     UserInfoType     `json:"user_info"`
 	QueryParams  QueryParamType   `json:"query_params"`
 	RecordIds    []string         `json:"record_ids"`
-	ActionParams ActionParamsType `json:"action_params"`
+	//ActionParams ActionParamsType `json:"action_params"`
 }
 
 type DeleteParamsType struct {
