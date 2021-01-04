@@ -54,14 +54,14 @@ type ProjectParamType map[string]bool // 1 or true for inclusion, 0 or false for
 
 type QueryItemType struct {
 	GroupItem      map[string]map[string]interface{} `json:"group_item"`       // key1 => fieldName, key2 => fieldOperator, interface{}=> value(s)
-	GroupItemOrder int                              `json:"group_item_order"` // item/field order within the group
+	GroupItemOrder int                               `json:"group_item_order"` // item/field order within the group
 	GroupItemOp    string                            `json:"group_item_op"`    // group-item relationship to the next item (AND, OR), the last item groupItemOp should be "" or will be ignored
 }
 
 type QueryGroupType struct {
 	GroupName   string          `json:"group_name"`    // for group-items(fields) categorization
 	GroupItems  []QueryItemType `json:"group_items"`   // group items to be composed by category
-	GroupOrder  int            `json:"group_order"`   // group order
+	GroupOrder  int             `json:"group_order"`   // group order
 	GroupLinkOp string          `json:"group_link_op"` // group relationship to the next group (AND, OR), the last group groupLinkOp should be "" or will be ignored
 }
 
@@ -80,8 +80,8 @@ type CrudParamsType struct {
 	ProjectParams ProjectParamType `json:"project_params"`
 	SortParams    SortParamType    `json:"sort_params"`
 	Token         string           `json:"token"`
-	Skip          int             `json:"skip"`
-	Limit         int             `json:"limit"`
+	Skip          int              `json:"skip"`
+	Limit         int              `json:"limit"`
 	TaskName      string           `json:"-"`
 }
 
@@ -301,6 +301,29 @@ type SelectQueryResponseType struct {
 	SelectQuery string
 	WhereQuery  string
 	FieldValues []interface{}
+}
+
+type SaveParamsType struct {
+	UserInfo    UserInfoType   `json:"user_info"`
+	QueryParams QueryParamType `json:"query_params"`
+	RecordIds   []string       `json:"record_ids"`
+	ActionParamsType
+}
+
+type DeleteParamsType struct {
+	UserInfo    UserInfoType   `json:"user_info"`
+	RecordIds   []string       `json:"record_ids"`
+	QueryParams QueryParamType `json:"query_params"`
+}
+
+type GetParamsType struct {
+	UserInfo     UserInfoType     `json:"user_info"`
+	Skip         int              `json:"skip"`
+	Limit        int              `json:"limit"`
+	RecordIds    []string         `json:"record_ids"`
+	QueryParams  QueryParamType   `json:"query_params"`
+	SortParam    SortParamType    `json:"sort_params"`
+	ProjectParam ProjectParamType `json:"project_param"`
 }
 
 // ErrorType provides the structure for error reporting
