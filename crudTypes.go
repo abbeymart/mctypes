@@ -32,14 +32,15 @@ type CheckAccessType struct {
 }
 
 type CheckAccessParamsType struct {
-	AccessDb     *pgxpool.Pool `json:"access_db"`
-	UserInfo     UserInfoType  `json:"user_info"`
-	TableName    string        `json:"table_name"`
-	RecordIds    []string      `json:"record_ids"` // for update, delete and read tasks
-	AccessTable  string        `json:"access_table"`
-	UserTable    string        `json:"user_table"`
-	RoleTable    string        `json:"role_table"`
-	ServiceTable string        `json:"service_table"`
+	AccessDb         *pgxpool.Pool `json:"access_db"`
+	UserInfo         UserInfoType  `json:"user_info"`
+	TableName        string        `json:"table_name"`
+	RecordIds        []string      `json:"record_ids"` // for update, delete and read tasks
+	AccessTable      string        `json:"access_table"`
+	UserTable        string        `json:"user_table"`
+	RoleTable        string        `json:"role_table"`
+	ServiceTable     string        `json:"service_table"`
+	UserProfileTable string        `json:"user_profile_table"`
 }
 
 type RoleFuncType func(it1 string, it2 RoleServiceType) bool
@@ -99,6 +100,7 @@ type CrudOptionsType struct {
 	RoleTable             string
 	AccessTable           string
 	VerifyTable           string
+	UserProfileTable      string
 	MaxQueryLimit         int
 	LogAll                bool
 	LogCreate             bool
@@ -117,38 +119,39 @@ type CrudOptionsType struct {
 }
 
 type CrudParamType struct {
-	AppDb           *pgxpool.Pool // use *pgxpool.Pool, preferred || *pgx.Conn
-	TableName       string
-	Token           string
-	UserInfo        UserInfoType
-	UserId          string
-	Group           string
-	Groups          []string
-	RecordIds       []string
-	ActionParams    ActionParamsType
-	QueryParams     QueryParamType
-	ExistParams     ExistParamsType
-	ProjectParams   ProjectParamType
-	SortParams      SortParamType
-	Skip            int
-	Limit           int
-	ParentTables    []string
-	ChildTables     []string
-	RecursiveDelete bool
-	CheckAccess     bool
-	AccessDb        *pgxpool.Pool
-	AuditDb         *pgxpool.Pool
-	AuditTable      string
-	ServiceTable    string
-	UserTable       string
-	RoleTable       string
-	AccessTable     string
-	MaxQueryLimit   int
-	LogAll          bool
-	LogCreate       bool
-	LogUpdate       bool
-	LogRead         bool
-	LogDelete       bool
+	AppDb            *pgxpool.Pool // use *pgxpool.Pool, preferred || *pgx.Conn
+	TableName        string
+	Token            string
+	UserInfo         UserInfoType
+	UserId           string
+	Group            string
+	Groups           []string
+	RecordIds        []string
+	ActionParams     ActionParamsType
+	QueryParams      QueryParamType
+	ExistParams      ExistParamsType
+	ProjectParams    ProjectParamType
+	SortParams       SortParamType
+	Skip             int
+	Limit            int
+	ParentTables     []string
+	ChildTables      []string
+	RecursiveDelete  bool
+	CheckAccess      bool
+	AccessDb         *pgxpool.Pool
+	AuditDb          *pgxpool.Pool
+	AuditTable       string
+	ServiceTable     string
+	UserTable        string
+	UserProfileTable string
+	RoleTable        string
+	AccessTable      string
+	MaxQueryLimit    int
+	LogAll           bool
+	LogCreate        bool
+	LogUpdate        bool
+	LogRead          bool
+	LogDelete        bool
 	//transLog AuditLog
 	HashKey             string
 	IsRecExist          bool
@@ -304,9 +307,9 @@ type SelectQueryResponseType struct {
 }
 
 type SaveParamsType struct {
-	UserInfo     UserInfoType     `json:"user_info"`
-	QueryParams  QueryParamType   `json:"query_params"`
-	RecordIds    []string         `json:"record_ids"`
+	UserInfo    UserInfoType   `json:"user_info"`
+	QueryParams QueryParamType `json:"query_params"`
+	RecordIds   []string       `json:"record_ids"`
 	//ActionParams ActionParamsType `json:"action_params"`
 }
 

@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.1.2
+
+- Release date: Jan 12, 2021
+- Added user_profile_table to types
+
 ## Version 0.1.1
 
 - Release date: Dec 23, 2020
