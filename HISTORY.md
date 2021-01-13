@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.3.5
+
+- Release date: Jan 13, 2021
+- Added audit-log check to crud-task-params-types
+
 ## Version 0.3.4
 
 - Release date: Jan 13, 2021

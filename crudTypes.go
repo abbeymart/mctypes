@@ -329,7 +329,6 @@ type GetParamsType struct {
 	ProjectParam ProjectParamType `json:"project_param"`
 }
 
-
 type SaveCrudParamsType struct {
 	CrudParams         CrudParamsType
 	CrudOptions        CrudOptionsType
@@ -337,6 +336,7 @@ type SaveCrudParamsType struct {
 	UpdateTableFields  []string
 	GetTableFields     []string
 	TableFieldPointers []interface{}
+	AuditLog           bool
 }
 
 type DeleteCrudParamsType struct {
@@ -344,6 +344,7 @@ type DeleteCrudParamsType struct {
 	CrudOptions        CrudOptionsType
 	GetTableFields     []string
 	TableFieldPointers []interface{}
+	AuditLog           bool
 }
 
 type GetCrudParamsType struct {
@@ -351,8 +352,8 @@ type GetCrudParamsType struct {
 	CrudOptions        CrudOptionsType
 	GetTableFields     []string
 	TableFieldPointers []interface{}
+	AuditLog           bool
 }
-
 
 // ErrorType provides the structure for error reporting
 type ErrorType struct {
