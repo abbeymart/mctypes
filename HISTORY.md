@@ -1,6 +1,11 @@
 # Historical logs
 
-## Version 0.1.2
+## Version 0.3.4
+
+- Release date: Jan 13, 2021
+- Added crud-task-params-types
+
+## Version 0.3.3
 
 - Release date: Jan 12, 2021
 - Added user_profile_table to types
