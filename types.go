@@ -25,3 +25,8 @@ type UserInfoType struct {
 	Group     string `json:"group"`
 	Email     string `json:"email" form:"email" binding:"required"`
 }
+
+type ValueType struct {
+	Value interface{} `json:"value"`
+	Type  string      `json:"type"`
+}
