@@ -104,7 +104,7 @@ type CrudOptionsType struct {
 	VerifyTable           string
 	UserProfileTable      string
 	MaxQueryLimit         int
-	logCrud               bool
+	LogCrud               bool
 	LogCreate             bool
 	LogUpdate             bool
 	LogRead               bool

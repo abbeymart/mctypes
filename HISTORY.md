@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.4.4
+
+- Release date: June 24, 2021
+- Fix private-to-public type error
+
 ## Version 0.4.3
 
 - Release date: June 24, 2021
