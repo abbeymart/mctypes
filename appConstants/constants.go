@@ -49,7 +49,7 @@ const (
 
 // LoginServices function returns supported third-party login services
 func LoginServices() []string {
-	return []string{"google", "facebook", "twitter"}
+	return []string{"custom", "github", "two factor", "google", "facebook", "twitter", "other"}
 }
 
 // AllowedDocTypes function returns the supported document types for upload

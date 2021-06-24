@@ -1,5 +1,10 @@
 # Historical logs
 
+## Version 0.4.3
+
+- Release date: June 24, 2021
+- Added base and shared types
+
 ## Version 0.4.2
 
 - Release date: June 24, 2021

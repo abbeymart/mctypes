@@ -11,15 +11,16 @@ import (
 )
 
 type RoleServiceType struct {
-	ServiceId            string `json:"serviceId"`
-	RoleId               string `json:"roleId"`
-	ServiceCategory      string `json:"serviceCategory"`
-	CanRead              bool   `json:"canRead"`
-	CanCreate            bool   `json:"canCreate"`
-	CanUpdate            bool   `json:"canUpdate"`
-	CanDelete            bool   `json:"canDelete"`
-	CanCrud              bool   `json:"canCrud"`
-	TableAccessPermitted bool   `json:"tableAccessPermitted"`
+	ServiceId            string   `json:"serviceId"`
+	RoleId               string   `json:"roleId"`
+	RoleIds              []string `json:"roleIds"`
+	ServiceCategory      string   `json:"serviceCategory"`
+	CanRead              bool     `json:"canRead"`
+	CanCreate            bool     `json:"canCreate"`
+	CanUpdate            bool     `json:"canUpdate"`
+	CanDelete            bool     `json:"canDelete"`
+	CanCrud              bool     `json:"canCrud"`
+	TableAccessPermitted bool     `json:"tableAccessPermitted"`
 }
 
 type CheckAccessType struct {
@@ -103,7 +104,7 @@ type CrudOptionsType struct {
 	VerifyTable           string
 	UserProfileTable      string
 	MaxQueryLimit         int
-	logCrud                bool
+	logCrud               bool
 	LogCreate             bool
 	LogUpdate             bool
 	LogRead               bool
@@ -148,7 +149,7 @@ type CrudParamType struct {
 	RoleTable        string
 	AccessTable      string
 	MaxQueryLimit    int
-	logCrud           bool
+	logCrud          bool
 	LogCreate        bool
 	LogUpdate        bool
 	LogRead          bool
@@ -203,7 +204,7 @@ type MongoCrudOptionsType struct {
 	AccessTable           string
 	VerifyTable           string
 	MaxQueryLimit         int
-	logCrud                bool
+	logCrud               bool
 	LogCreate             bool
 	LogUpdate             bool
 	LogRead               bool
@@ -247,7 +248,7 @@ type MongoCrudParamType struct {
 	RoleTable       string
 	AccessTable     string
 	MaxQueryLimit   int
-	logCrud          bool
+	logCrud         bool
 	LogCreate       bool
 	LogUpdate       bool
 	LogRead         bool
