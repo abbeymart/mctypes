@@ -1,6 +1,6 @@
 // @Author: abbeymart | Abi Akindele | @Created: 2020-12-22 | @Updated: 2020-12-22
 // @Company: mConnect.biz | @License: MIT
-// @Description: crud operations' types
+// @Description: crud operations' types - updated
 
 package mctypes
 

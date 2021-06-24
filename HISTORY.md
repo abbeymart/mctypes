@@ -1,5 +1,11 @@
 # Historical logs
 
+## Version 0.4.1
+
+- Release date: June 24, 2021
+- Refactored to align with ORM packages (json-camelCase formats)
+
+
 ## Version 0.4.0
 
 - Release date: June 23, 2021
