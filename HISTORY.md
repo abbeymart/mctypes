@@ -1,5 +1,18 @@
 # Historical logs
 
+## Version 0.4.0
+
+- Release date: June 23, 2021
+- Refactored to align with ORM packages (json-camelCase formats)
+
+
+## Version 0.3.6
+
+- Release date: Jan 13, 2021
+- Added audit-log check to crud-task-params-types
+
+
+
 ## Version 0.3.5
 
 - Release date: Jan 13, 2021

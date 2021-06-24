@@ -2,7 +2,7 @@
 // @Company: mConnect.biz | @License: MIT
 // @Description: application [system] constants
 
-// appConstants package publish default application/system constants
+// Package appConstants publish default application/system constants
 package appConstants
 
 // Default application[system] constants
@@ -29,6 +29,7 @@ const (
 	LoginLogType       = "login"
 	LogoutLogType      = "logout"
 	LogAll             = false
+	LogCrud            = false
 	LogCreate          = true
 	LogUpdate          = true
 	LogDelete          = true
@@ -58,5 +59,41 @@ func AllowedDocTypes() []string {
 		"audio/wav", "audio/mpeg", "application/pdf", "application/msword",
 		"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
 		"application/vnd.ms-powerpoint",
+	}
+}
+
+func PermittedUserChangeRequests() []string {
+	return []string{
+		"verifyRegistration",
+		"resetPassword",
+		"changeEmail",
+		"changeUsername",
+		"getUsername",
+	}
+}
+
+func AppCurrencies() []string {
+	return []string{
+		"USD",
+		"CAD",
+		"FFR",
+		"NGN",
+	}
+}
+
+func ContentAccess() []string {
+	return []string{
+		"internal",
+		"private",
+		"public",
+	}
+}
+
+func ContentTypes() []string {
+	return []string{
+		"document",
+		"news",
+		"page",
+		"post",
 	}
 }

@@ -11,59 +11,60 @@ import (
 )
 
 type RoleServiceType struct {
-	ServiceId            string `json:"service_id"`
-	RoleId               string `json:"role_id"`
-	ServiceCategory      string `json:"service_category"`
-	CanRead              bool   `json:"can_read"`
-	CanCreate            bool   `json:"can_create"`
-	CanUpdate            bool   `json:"can_update"`
-	CanDelete            bool   `json:"can_delete"`
-	TableAccessPermitted bool   `json:"table_access_permitted"`
+	ServiceId            string `json:"serviceId"`
+	RoleId               string `json:"roleId"`
+	ServiceCategory      string `json:"serviceCategory"`
+	CanRead              bool   `json:"canRead"`
+	CanCreate            bool   `json:"canCreate"`
+	CanUpdate            bool   `json:"canUpdate"`
+	CanDelete            bool   `json:"canDelete"`
+	CanCrud              bool   `json:"canCrud"`
+	TableAccessPermitted bool   `json:"tableAccessPermitted"`
 }
 
 type CheckAccessType struct {
-	UserId       string            `json:"user_id" mcorm:"user_id"`
+	UserId       string            `json:"userId" mcorm:"userId"`
 	Group        string            `json:"group" mcorm:"group"`
 	Groups       []string          `json:"groups" mcorm:"groups"`
-	IsActive     bool              `json:"is_active" mcorm:"is_active"`
-	IsAdmin      bool              `json:"is_admin" mcorm:"is_admin"`
-	RoleServices []RoleServiceType `json:"role_services" mcorm:"role_services"`
-	TableId      string            `json:"table_id" mcorm:"table_id"`
+	IsActive     bool              `json:"isActive" mcorm:"isActive"`
+	IsAdmin      bool              `json:"isAdmin" mcorm:"isAdmin"`
+	RoleServices []RoleServiceType `json:"roleServices" mcorm:"roleServices"`
+	TableId      string            `json:"tableId" mcorm:"tableId"`
 }
 
 type CheckAccessParamsType struct {
-	AccessDb         *pgxpool.Pool `json:"access_db"`
-	UserInfo         UserInfoType  `json:"user_info"`
-	TableName        string        `json:"table_name"`
-	RecordIds        []string      `json:"record_ids"` // for update, delete and read tasks
-	AccessTable      string        `json:"access_table"`
-	UserTable        string        `json:"user_table"`
-	RoleTable        string        `json:"role_table"`
-	ServiceTable     string        `json:"service_table"`
-	UserProfileTable string        `json:"user_profile_table"`
+	AccessDb         *pgxpool.Pool `json:"accessDb"`
+	UserInfo         UserInfoType  `json:"userInfo"`
+	TableName        string        `json:"tableName"`
+	RecordIds        []string      `json:"recordIds"` // for update, delete and read tasks
+	AccessTable      string        `json:"accessTable"`
+	UserTable        string        `json:"userTable"`
+	RoleTable        string        `json:"roleTable"`
+	ServiceTable     string        `json:"serviceTable"`
+	UserProfileTable string        `json:"userProfileTable"`
 }
 
 type RoleFuncType func(it1 string, it2 RoleServiceType) bool
 type FieldValueType interface{}
-type ValueParamType map[string]interface{}
+type ActionParamType map[string]interface{}
 type ValueToDataType map[string]interface{}
-type ActionParamsType []ValueParamType
+type ActionParamsType []ActionParamType
 type ExistParamType map[string]interface{}
 type ExistParamsType []ExistParamType
 type SortParamType map[string]int     // 1 for "asc", -1 for "desc"
 type ProjectParamType map[string]bool // 1 or true for inclusion, 0 or false for exclusion
 
 type QueryItemType struct {
-	GroupItem      map[string]map[string]interface{} `json:"group_item"`       // key1 => fieldName, key2 => fieldOperator, interface{}=> value(s)
-	GroupItemOrder int                               `json:"group_item_order"` // item/field order within the group
-	GroupItemOp    string                            `json:"group_item_op"`    // group-item relationship to the next item (AND, OR), the last item groupItemOp should be "" or will be ignored
+	GroupItem      map[string]map[string]interface{} `json:"groupItem"`      // key1 => fieldName, key2 => fieldOperator, interface{}=> value(s)
+	GroupItemOrder int                               `json:"groupItemOrder"` // item/field order within the group
+	GroupItemOp    string                            `json:"groupItemOp"`    // group-item relationship to the next item (AND, OR), the last item groupItemOp should be "" or will be ignored
 }
 
 type QueryGroupType struct {
-	GroupName   string          `json:"group_name"`    // for group-items(fields) categorization
-	GroupItems  []QueryItemType `json:"group_items"`   // group items to be composed by category
-	GroupOrder  int             `json:"group_order"`   // group order
-	GroupLinkOp string          `json:"group_link_op"` // group relationship to the next group (AND, OR), the last group groupLinkOp should be "" or will be ignored
+	GroupName   string          `json:"groupName"`   // for group-items(fields) categorization
+	GroupItems  []QueryItemType `json:"groupItems"`  // group items to be composed by category
+	GroupOrder  int             `json:"groupOrder"`  // group order
+	GroupLinkOp string          `json:"groupLinkOp"` // group relationship to the next group (AND, OR), the last group groupLinkOp should be "" or will be ignored
 }
 
 type QueryParamType []QueryGroupType
@@ -73,13 +74,13 @@ type WhereParamType []QueryGroupType
 type CrudParamsType struct {
 	AppDb         *pgxpool.Pool    `json:"-"`
 	TableName     string           `json:"-"`
-	UserInfo      UserInfoType     `json:"user_info"`
-	ActionParams  ActionParamsType `json:"action_params"`
-	ExistParams   ExistParamsType  `json:"exist_params"`
-	QueryParams   WhereParamType   `json:"query_params"`
-	RecordIds     []string         `json:"record_ids"`
-	ProjectParams ProjectParamType `json:"project_params"`
-	SortParams    SortParamType    `json:"sort_params"`
+	UserInfo      UserInfoType     `json:"userInfo"`
+	ActionParams  ActionParamsType `json:"actionParams"`
+	ExistParams   ExistParamsType  `json:"existParams"`
+	QueryParams   WhereParamType   `json:"queryParams"`
+	RecordIds     []string         `json:"recordIds"`
+	ProjectParams ProjectParamType `json:"projectParams"`
+	SortParams    SortParamType    `json:"sortParams"`
 	Token         string           `json:"token"`
 	Skip          int              `json:"skip"`
 	Limit         int              `json:"limit"`
@@ -169,6 +170,7 @@ type CrudParamType struct {
 }
 
 // MongoDB specific types
+
 type MongoCrudTaskType struct {
 	AppDb         *mongo.Client
 	TableName     string
@@ -277,6 +279,7 @@ type OkResponse struct {
 }
 
 // CRUD operations
+
 type CreateQueryResponseType struct {
 	CreateQuery string
 	FieldNames  []string
@@ -307,26 +310,26 @@ type SelectQueryResponseType struct {
 }
 
 type SaveParamsType struct {
-	UserInfo    UserInfoType   `json:"user_info"`
-	QueryParams QueryParamType `json:"query_params"`
-	RecordIds   []string       `json:"record_ids"`
-	//ActionParams ActionParamsType `json:"action_params"`
+	UserInfo    UserInfoType   `json:"userInfo"`
+	QueryParams QueryParamType `json:"queryParams"`
+	RecordIds   []string       `json:"recordIds"`
+	//ActionParams ActionParamsType `json:"actionParams"`
 }
 
 type DeleteParamsType struct {
-	UserInfo    UserInfoType   `json:"user_info"`
-	RecordIds   []string       `json:"record_ids"`
-	QueryParams QueryParamType `json:"query_params"`
+	UserInfo    UserInfoType   `json:"userInfo"`
+	RecordIds   []string       `json:"recordIds"`
+	QueryParams QueryParamType `json:"queryParams"`
 }
 
 type GetParamsType struct {
-	UserInfo     UserInfoType     `json:"user_info"`
+	UserInfo     UserInfoType     `json:"userInfo"`
 	Skip         int              `json:"skip"`
 	Limit        int              `json:"limit"`
-	RecordIds    []string         `json:"record_ids"`
-	QueryParams  QueryParamType   `json:"query_params"`
-	SortParam    SortParamType    `json:"sort_params"`
-	ProjectParam ProjectParamType `json:"project_param"`
+	RecordIds    []string         `json:"recordIds"`
+	QueryParams  QueryParamType   `json:"queryParams"`
+	SortParam    SortParamType    `json:"sortParams"`
+	ProjectParam ProjectParamType `json:"projectParam"`
 }
 
 type SaveCrudParamsType struct {

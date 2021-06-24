@@ -7,7 +7,8 @@ package mctypes
 import "github.com/jackc/pgx/v4/pgxpool"
 
 // ORM types
-type RecordValueType map[string]ValueParamType
+
+type RecordValueType map[string]ActionParamType
 type RecordDescType map[string]FieldDescType
 
 type GetValueType func() interface{}

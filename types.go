@@ -7,19 +7,19 @@ package mctypes
 import "time"
 
 type AuditStampType struct {
-	IsActive  bool      `json:"is_active"` // => activate by modelOptionsType settings...
-	CreatedBy string    `json:"created_by"`
-	CreatedAt time.Time `json:"created_at"`
-	UpdatedBy string    `json:"updated_by"`
-	UpdatedAt time.Time `json:"updated_at"`
+	IsActive  bool      `json:"isActive"` // => activate by modelOptionsType settings...
+	CreatedBy string    `json:"createdBy"`
+	CreatedAt time.Time `json:"createdAt"`
+	UpdatedBy string    `json:"updatedBy"`
+	UpdatedAt time.Time `json:"updatedAt"`
 }
 
 type UserInfoType struct {
-	UserId    string `json:"user_id" form:"user_id" binding:"required"`
-	FirstName string `json:"first_name"`
-	LastName  string `json:"last_name"`
+	UserId    string `json:"userId" form:"userId" binding:"required"`
+	FirstName string `json:"firstName"`
+	LastName  string `json:"lastName"`
 	Language  string `json:"language"`
-	LoginName string `json:"login_name" form:"login_name" binding:"required"`
+	LoginName string `json:"loginName" form:"loginName" binding:"required"`
 	Token     string `json:"token"`
 	Expire    int64   `json:"expire"`
 	Group     string `json:"group"`

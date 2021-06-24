@@ -58,6 +58,7 @@ const (
 	JWT                = "jwt"
 	Latitude           = "latitude"
 	Longitude          = "longitude"
+	LatitudeLongitude  = "latitudeLongitude"
 	ISO2               = "iso2"
 	ISO3               = "iso3"
 	MACAddress         = "macaddress"
@@ -68,4 +69,5 @@ const (
 	Set                = "set"
 	Map                = "map"
 	Undefined          = "undefined"
+	Unknown            = "unknown"
 )
