@@ -1,10 +1,14 @@
 # Historical logs
 
+## Version 0.4.2
+
+- Release date: June 24, 2021
+- Refactored logAll to logCrud in crud-types
+
 ## Version 0.4.1
 
 - Release date: June 24, 2021
 - Refactored to align with ORM packages (json-camelCase formats)
-
 
 ## Version 0.4.0
 

@@ -103,7 +103,7 @@ type CrudOptionsType struct {
 	VerifyTable           string
 	UserProfileTable      string
 	MaxQueryLimit         int
-	LogAll                bool
+	logCrud                bool
 	LogCreate             bool
 	LogUpdate             bool
 	LogRead               bool
@@ -148,7 +148,7 @@ type CrudParamType struct {
 	RoleTable        string
 	AccessTable      string
 	MaxQueryLimit    int
-	LogAll           bool
+	logCrud           bool
 	LogCreate        bool
 	LogUpdate        bool
 	LogRead          bool
@@ -203,7 +203,7 @@ type MongoCrudOptionsType struct {
 	AccessTable           string
 	VerifyTable           string
 	MaxQueryLimit         int
-	LogAll                bool
+	logCrud                bool
 	LogCreate             bool
 	LogUpdate             bool
 	LogRead               bool
@@ -247,7 +247,7 @@ type MongoCrudParamType struct {
 	RoleTable       string
 	AccessTable     string
 	MaxQueryLimit   int
-	LogAll          bool
+	logCrud          bool
 	LogCreate       bool
 	LogUpdate       bool
 	LogRead         bool
